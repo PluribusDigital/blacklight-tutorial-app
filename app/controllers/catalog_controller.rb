@@ -127,7 +127,6 @@ class CatalogController < ApplicationController
        :years_25 => { label: 'within 25 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 25 } TO *]" }
     }
 
-
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
@@ -153,10 +152,10 @@ class CatalogController < ApplicationController
     config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
     config.add_show_field 'author_tsim', label: 'Author'
     config.add_show_field 'author_vern_ssim', label: 'Author'
-    config.add_show_field 'format', label: 'Format'
+    config.add_show_field 'format', label: 'Format', link_to_facet: true
     config.add_show_field 'url_fulltext_ssim', label: 'URL'
     config.add_show_field 'url_suppl_ssim', label: 'More Information'
-    config.add_show_field 'language_ssim', label: 'Language'
+    config.add_show_field 'language_ssim', label: 'Language', link_to_facet: true
     config.add_show_field 'published_ssim', label: 'Published'
     config.add_show_field 'published_vern_ssim', label: 'Published'
     config.add_show_field 'lc_callnum_ssim', label: 'Call number'
