@@ -1,3 +1,7 @@
 en:
   blacklight:
-    application_name: 'Blacklight'
+    application_name: 'Library of Congress Search'
+    search:
+      form:
+        search:
+          placeholder: 'Search for...'
