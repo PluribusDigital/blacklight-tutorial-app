@@ -27,4 +27,24 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  def author_name
+    return unless has? 'author_tsim'
+
+    # Don't really do this; find a way to do this wherever you have enough information
+    # to do it without as many errors.
+    Array(fetch('author_tsim')).map do |value|
+      a, b, c = value.split(', ', 3)
+
+      if a && b && c
+        # the value had all 3 parts
+        "#{b} #{a}, #{c}"
+      elsif a && !b&.match?(/^\d/)
+        # the value has just two parts, and the second part was probably not a year
+        "#{b} #{a}"
+      else
+        value
+      end
+    end
+  end
 end
