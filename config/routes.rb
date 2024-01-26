@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root to: "static_pages#home"
   concern :searchable, Blacklight::Routes::Searchable.new
 
+  resource :static_pages, only: [:home], as: 'home', path: '/', controller: 'static_pages' do
+    concerns :searchable
+  end
+
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
   end
