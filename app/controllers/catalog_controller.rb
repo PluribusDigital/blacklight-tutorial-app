@@ -34,8 +34,7 @@ class CatalogController < ApplicationController
 
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
-      rows: 20,
-      qf: 'id title_tsim^100 author_tsim^20 all_text_timv'
+      rows: 10
     }
 
     # solr path which will be added to solr base url before the other solr params.
