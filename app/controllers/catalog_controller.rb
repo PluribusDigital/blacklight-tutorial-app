@@ -114,7 +114,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'format', label: 'Format', collapse: false, sort: 'alpha', limit: -1
     config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     config.add_facet_field 'subject_ssim', label: 'Topic', limit: 5, index_range: 'A'..'Z'
-    config.add_facet_field 'language_ssim', label: 'Language', limit: true
+    config.add_facet_field 'language_ssim', label: 'Language', limit: true, filter_class: SimpleFilterClass
     config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
     config.add_facet_field 'subject_geo_ssim', label: 'Region'
     config.add_facet_field 'subject_era_ssim', label: 'Era'
