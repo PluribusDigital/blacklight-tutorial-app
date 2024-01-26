@@ -6,6 +6,11 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Blacklight::Marc::Catalog
 
+  before_action do
+    if current_user&.admin?
+      blacklight_config.add_facet_field :admin_only_facet
+    end
+  end
 
   # If you'd like to handle errors returned by Solr in a certain way,
   # you can use Rails rescue_from with a method you define in this controller,
