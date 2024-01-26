@@ -3,7 +3,17 @@
 # Represents a single document returned from Solr
 class SolrDocument
   include Blacklight::Solr::Document
-      # The following shows how to setup this blacklight document to display marc documents
+
+  def initialize(*args)
+    super
+    will_export_as(:marcjson)
+  end
+
+  def export_as_marcjson
+    to_marc.as_json
+  end
+
+  # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_ss
   extension_parameters[:marc_format_type] = :marcxml
   use_extension(Blacklight::Marc::DocumentExtension) do |document|
