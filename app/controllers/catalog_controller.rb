@@ -111,15 +111,16 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'format', label: 'Format'
+    config.add_facet_field 'format', label: 'Format', collapse: false, sort: 'alpha', limit: -1
     config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
-    config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'subject_ssim', label: 'Topic', limit: 5, index_range: 'A'..'Z'
     config.add_facet_field 'language_ssim', label: 'Language', limit: true
     config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
     config.add_facet_field 'subject_geo_ssim', label: 'Region'
     config.add_facet_field 'subject_era_ssim', label: 'Era'
 
     config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['format', 'language_ssim'], collapsing: true
+    config.add_facet_field 'topic_language', label: 'Topic by language', pivot: [:language_ssim, :subject_ssim], collapsing: true
 
     config.add_facet_field 'example_query_facet_field', label: 'Publish Date', :query => {
        :years_5 => { label: 'within 5 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 5 } TO *]" },
