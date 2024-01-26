@@ -56,6 +56,7 @@ class CatalogController < ApplicationController
     # config.index.thumbnail_field = 'thumbnail_path_ss'
     config.index.thumbnail_field = :render_thumbnail
     config.index.default_thumbnail = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMzAwIDE1MCI-IDxyZWN0IGZpbGw9IiNkZGQiIHdpZHRoPSIzMDAiIGhlaWdodD0iMTUwIi8-IDx0ZXh0IGZpbGw9InJnYmEoMCwwLDAsMC41KSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjMwIiBkeT0iMTAuNSIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgeD0iNTAlIiB5PSI1MCUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjMwMMOXMTUwPC90ZXh0PiA8L3N2Zz4='
+    config.index.respond_to.csv = true
 
     # The presenter is the view-model class for the page
     # config.index.document_presenter_class = MyApp::IndexPresenter
