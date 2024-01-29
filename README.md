@@ -1,5 +1,5 @@
 # blacklight-tutorial-app
-Rails app with commits for the [Project Blacklight tutorial](https://workshop.projectblacklight.org/)
+Rails app with commits for the [Project Blacklight tutorial, 8.0.0 version](https://workshop.projectblacklight.org/v8.0.0.alpha/first_change/)
 
 Ruby 3.3.0
 
